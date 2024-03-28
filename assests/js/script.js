@@ -39,6 +39,51 @@ function isValidEmail(email){
   return regex.test(email);
 }
 function isValidPassword(password){
-  let regex = /^[a-zA-Z0-9@!#$%^&*]+$/;
+  let regex = /^[a-zA-Z0-9@!#$%^&*_]+$/;
   return regex.test(password);
 }
+//Kiểm tra API
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Chặn sự kiện mặc định của form
+  const username = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+
+  // Hiển thị biểu tượng loading khi gửi yêu cầu
+  document.getElementById('loader').style.display = 'block';
+
+  // Gửi yêu cầu đến API
+  fetch('https://recruitment-api.pyt1.stg.jmr.pl/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      login: username,
+      password: password
+    })
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Lỗi khi gửi yêu cầu');
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Ẩn biểu tượng loading sau khi nhận được phản hồi từ API
+    document.getElementById('loader').style.display = 'none';
+
+    // Chuyển đến trang github 2
+    if (data.status === 'ok') {
+      window.location.href = 'https://www.youtube.com/watch?v=p2rhHJ98yYY&list=RDLKyB_sAXITs&index=42';
+    } else {
+      // Nếu đăng nhập không thành công, hiển thị thông báo lỗi
+      alert('Tên đăng nhập hoặc mật khẩu không chính xác.');
+    }
+  })
+  .catch(error => {
+    console.error('Lỗi:', error);
+    alert('Đã xảy ra lỗi. Vui lòng thử lại sau.');
+    // Ẩn biểu tượng loading nếu xảy ra lỗi
+    document.getElementById('loader').style.display = 'none';
+  });
+});
