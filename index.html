@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập TODO LIST</title>
+    <title>Đăng nhập vào TODO LIST</title>
+    <link rel="icon" href="./assests/img/Group (3).png" type="image/png">
     <link rel="stylesheet" href="./assests/css/style.css">
 </head>
 <body>
@@ -16,7 +17,12 @@
                 <img src="./assests/img/Group(5).png" alt="">
             </div>
         </div>
-        <form action="" method="POST" class="form" id="form-1">
+        <div id="loader">
+            <div id="image">
+                <img src="./assests/img/loading4.svg" alt="" style="width: 100px; height: 100px">
+            </div>
+        </div>
+        <form action="" method="POST" class="form" id="loginForm">
             <div class="box-login">
                 <div class="box-login-left">
                     <img src="./assests/img/Group101393.png" alt="">
@@ -58,7 +64,7 @@
                 <input type="checkbox" id="check" name="check">
                 <label for="" style="color: rgb(0, 119, 255);">Remember me</label>
                 <div></div>
-                <input type="submit" value="Login" id="login">
+                <input type="submit" value="Login" id="submitButton">
                 </div> 
                 </div>
             </div>
