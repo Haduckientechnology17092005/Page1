@@ -74,7 +74,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 
     // Chuyển đến trang github 2
     if (data.status === 'ok') {
-      window.location.href = 'https://www.youtube.com/watch?v=p2rhHJ98yYY&list=RDLKyB_sAXITs&index=42';
+      window.location.href = 'https://haduckientechology17092005.github.io/-n-cu-i-kh-a-/';
     } else {
       // Nếu đăng nhập không thành công, hiển thị thông báo lỗi
       alert('Tên đăng nhập hoặc mật khẩu không chính xác.');
